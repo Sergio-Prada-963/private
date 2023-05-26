@@ -1,7 +1,10 @@
+import {createBook, readBook} from '../APIConecction/data.js';
+
 export const parametrosAll = {
-    nameB: '',
-    generoB: '',
-    codeB: ''
+    nombre: '',
+    genero: '',
+	fecha: '',
+    id: ''
 }
 
 
@@ -9,16 +12,22 @@ document.addEventListener("DOMContentLoaded", () => {
 	const $resultados = document.querySelector("#resultado");
     const nameBook = document.querySelector('#nameBook');
     const genreBook = document.querySelector('#genreBook');
-    const modal = document.querySelector('.modal')
-    const closeModal = document.querySelector('.close')
+	const dateBook = document.querySelector('#dateBook');
+    const modal = document.querySelector('.modal');
+    const closeModal = document.querySelector('.close');
 
     nameBook.addEventListener('input', (e) => {
-        parametrosAll.nameB = e.target.value;
+        parametrosAll.nombre = e.target.value;
     });
 
     genreBook.addEventListener('input', (e) => {
-        parametrosAll.generoB = e.target.value;
+        parametrosAll.genero = e.target.value;
     });
+
+	dateBook.addEventListener('input', (e) => {
+		parametrosAll.fecha = e.target.value;
+	})
+
     closeModal.addEventListener('click', () => {
         modal.style.display = 'none';
     })
@@ -46,12 +55,21 @@ document.addEventListener("DOMContentLoaded", () => {
 		Quagga.start();
 	});
 
+	const sendBookButton = document.querySelector('#sendBook');
+
+	sendBookButton.addEventListener('click', (e)=>{
+		e.preventDefault();
+
+		createBook(parametrosAll)
+		readBook()
+		console.log(parametrosAll)
+	});
 	Quagga.onDetected((data) => {
 		$resultados.textContent = data.codeResult.code;
-        
+        parametrosAll.id = data.codeResult.code;
         modal.style.display = 'flex';
-        
 
+	
 		console.log(data);
 	});
 
