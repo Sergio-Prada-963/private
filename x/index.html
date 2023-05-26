@@ -4,24 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="styles.css" rel="stylesheet" type="text/css" />
+    <title>LIBRARY</title>
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-    <p id="resultado">Aquí aparecerá el código</p>
-    <h1>si me veo</h1>
-    <p>A continuación, el contenedor: </p>
-    <div id="contenedor"></div>
-    <!-- Cargamos Quagga y luego nuestro script -->
+	<p>A continuación, el contenedor: </p>
+	<div id="contenedor"></div>
+
+    <section class="modal">
+        <article class="modalContainer">
+            <form id="formularioBook">
+                <h2 class="titleSecond">REGISTRAR</h2>
+                <input type="text" id="nameBook" placeholder="book name">
+                <p id="resultado"></p>
+                <input type="text" id="genreBook" placeholder="book genre">
+                <button type="submit" id="sendBook">REGISTRAR NUEVO LIBRO</button>
+            </form>
+            <button class="close">CLOSE</button>
+        </article>
+    </section>
+    
     
 
-    <h1>camara</h1>
-    <h1>mirando la camara</h1>
-    <video src="" id="video"></video>
-
-    <script src="main.js"></script>
-
-    <script src="https://unpkg.com/quagga@0.12.1/dist/quagga.min.js"></script>
-    <script src="script.js"></script>
-</body>	
+		<!-- Cargamos Quagga y luego nuestro script -->
+	<script src="https://unpkg.com/quagga@0.12.1/dist/quagga.min.js"></script>
+    <script src="./js/script.js" type="module"></script>
+    <script src="./APIConecction/data.js" type="module"></script>
+    <script src="./APIConecction/newbook.js" type="module"></script>
+    
+</body>
 </html>

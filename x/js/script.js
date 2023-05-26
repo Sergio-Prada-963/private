@@ -1,5 +1,29 @@
+export const parametrosAll = {
+    nameB: '',
+    generoB: '',
+    codeB: ''
+}
+
+
 document.addEventListener("DOMContentLoaded", () => {
 	const $resultados = document.querySelector("#resultado");
+    const nameBook = document.querySelector('#nameBook');
+    const genreBook = document.querySelector('#genreBook');
+    const modal = document.querySelector('.modal')
+    const closeModal = document.querySelector('.close')
+
+    nameBook.addEventListener('input', (e) => {
+        parametrosAll.nameB = e.target.value;
+    });
+
+    genreBook.addEventListener('input', (e) => {
+        parametrosAll.generoB = e.target.value;
+    });
+    closeModal.addEventListener('click', () => {
+        modal.style.display = 'none';
+    })
+
+   
 	Quagga.init({
 		inputStream: {
 			constraints: {
@@ -24,7 +48,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	Quagga.onDetected((data) => {
 		$resultados.textContent = data.codeResult.code;
-		// Imprimimos todo el data para que puedas depurar
+        
+        modal.style.display = 'flex';
+        
+
 		console.log(data);
 	});
 
