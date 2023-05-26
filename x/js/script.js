@@ -62,7 +62,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 		createBook(parametrosAll)
 		readBook()
-		console.log(parametrosAll)
+		console.log(parametrosAll);
+
+
+		window.location = '../index.html'
 	});
 	Quagga.onDetected((data) => {
 		$resultados.textContent = data.codeResult.code;
