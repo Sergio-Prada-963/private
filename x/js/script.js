@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		console.log(parametrosAll);
 
 
-		window.location = '../index.html'
+		window.location.href= 'index.html'
 	});
 	Quagga.onDetected((data) => {
 		$resultados.textContent = data.codeResult.code;
